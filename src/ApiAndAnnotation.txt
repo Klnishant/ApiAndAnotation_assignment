@@ -1,0 +1,123 @@
+3. What is the difference between collections and streams?Explain with an Example
+Ans: In programming, "collections" and "streams" are both terms used to describe ways of handling and manipulating data. While they have similarities, they differ in their fundamental characteristics and how they operate.
+
+Collections:
+A collection is a data structure that holds multiple elements or values. It allows you to store, retrieve, and manipulate the elements in a structured manner. Collections typically provide various operations such as adding elements, removing elements, iterating over elements, and searching for elements. Examples of collections include arrays, lists, sets, and maps.
+
+Let's consider an example of a collection, specifically an ArrayList in Java:
+
+import java.util.ArrayList;
+
+public class CollectionExample {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<>();
+        
+        // Adding elements to the collection
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+        
+        // Iterating over the elements
+        for (String name : names) {
+            System.out.println(name);
+        }
+        
+        // Removing an element
+        names.remove("Bob");
+        
+        // Searching for an element
+        boolean containsCharlie = names.contains("Charlie");
+        System.out.println("Contains Charlie: " + containsCharlie);
+    }
+}
+
+In the above example, we create an ArrayList called `names` to store strings. We add elements to the collection, iterate over them using a for-each loop, remove an element, and check if the collection contains a specific element.
+
+Streams:
+A stream is a sequence of elements that can be processed in a pipeline manner. It allows you to perform operations on the elements in a declarative and functional style. Streams provide a set of high-level operations such as filtering, mapping, reducing, and collecting. Streams are often used to process large amounts of data efficiently and expressively. Streams are available in languages like Java, Python, and C#.
+
+Let's illustrate the concept of streams using Java 8 or later:
+
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamExample {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+        
+        // Filtering elements based on a condition
+        names.stream()
+            .filter(name -> name.startsWith("A"))
+            .forEach(System.out::println);
+        
+        // Mapping elements to a new value
+        names.stream()
+            .map(String::toUpperCase)
+            .forEach(System.out::println);
+        
+        // Reducing elements to a single value
+        String concatenatedNames = names.stream()
+            .reduce("", (partialResult, name) -> partialResult + name);
+        System.out.println("Concatenated names: " + concatenatedNames);
+    }
+}
+
+In the above example, we have a list of names. We create a stream from the list and perform various operations on the elements. We filter the names starting with "A," map the names to uppercase, and reduce the names into a single concatenated string.
+
+Key Differences:
+1. Data Structure: Collections are data structures that hold and manage multiple elements, while streams are not data structures themselves but rather a sequence of elements from a data source.
+2. Mutability: Collections are mutable, meaning you can modify them by adding, removing, or updating elements. Streams, on the other hand, are immutable and do not modify the underlying data source.
+3. Eager vs. Lazy Evaluation: Collections eagerly evaluate operations, meaning they perform the operations immediately. Streams, on the other hand, use lazy evaluation, which means the operations are only performed when necessary and can be optimized for efficiency.
+4. Intermediate vs. Terminal Operations: Collections provide both intermediate and terminal operations. Intermediate operations transform the elements and return a new stream, allowing
+
+4. What is enums in java? explain with an example
+Ans: We can use enum to define a group of named constants.
+Enums are used to represent a collection of related constants that have a common purpose. Each constant in an
+enum is an instance of the enum type, and they are typically defined as public static final fields.
+Here's an example of how to define an enum in Java:
+
+Here we define an enum called "DayOfWeek" that represents the days of the week. The enum has seven
+constants, each representing a day of the week. The constants are defined in all uppercase letters by convention.
+5. What are in built annotations in java
+Ans: built-in annotations in Java:
+@Override
+@Deprecated
+class EnumDemo{
+public enum DayOfWeek {
+MONDAY,
+TUESDAY,
+WEDNESDAY,
+THURSDAY,
+FRIDAY,
+SATURDAY,
+SUNDAY
+}
+public static void main(String args[]){
+for(DayOfWeek d:DayOfWeek.values())
+System.out.println(d);
+}
+}
+Ex: Streams
+import java.io.*;
+import java.util.*;
+class Demo {
+public static void main(String[] args)
+{
+List<String> CompanyList = new ArrayList<>();
+CompanyList.add("Google");
+CompanyList.add("Apple");
+CompanyList.add("Microsoft");
+CompanyList.stream().sorted().forEach(
+System.out::println);
+}
+}
+
+@SuppressWarnings
+@FunctionalInterface
+@Retention
+@Target
+@Documented
+@Inherited
+These built-in annotations in Java are used to provide additional information to the Java compiler and other
+tools. They help improve code readability, maintainability, and safety by enforcing specific rules and behaviours
+in Java code.
